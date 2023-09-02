@@ -11,6 +11,7 @@ interface ILayout {
 }
 
 export default function RootLayout({ children }: ILayout) {
+  console.log("HII");
   return (
     <div className="flex flex-col md:flex-row w-screen h-max flex-col-reverse">
       {/* left section  */}
