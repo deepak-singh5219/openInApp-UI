@@ -4,10 +4,10 @@ import { AuthButtons, Button, Input, Text } from "@/components/UI";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { signIn } from "next-auth/react";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import Link from "next/link";
+import { signIn, useSession } from "next-auth/react";
 
 const schema = z.object({
   email: z.string().email({ message: "Please enter a valid Email" }),
@@ -19,6 +19,12 @@ export type IForm = z.infer<typeof schema>;
 interface ILoginForm {}
 
 const LoginForm: FC<ILoginForm> = () => {
+  const session = useSession();
+  const googleSignIn = () => {
+    signIn("google", {
+      callbackUrl: "/",
+    });
+  };
   const {
     register,
     handleSubmit,
@@ -48,7 +54,7 @@ const LoginForm: FC<ILoginForm> = () => {
               title="Sign in with Google"
               color="#FFFFFF"
               icon={<GoogleIcon />}
-              onClick={() => console.log("You clicked on the pink circle!")}
+              onClick={googleSignIn}
             />
             <AuthButtons
               title="Sign in with Apple"
