@@ -2,6 +2,7 @@ import AuthProvider from "@/components/AuthProvider/AuthProvider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import Providers from "@/components/Providers";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html className="h-screen" lang="en">
       <body className={montserrat.className}>
-        <AuthProvider>{children}</AuthProvider>
+        <Providers>
+          <AuthProvider>{children}</AuthProvider>
+        </Providers>
       </body>
     </html>
   );
