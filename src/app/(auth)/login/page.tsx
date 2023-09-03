@@ -22,7 +22,7 @@ const LoginForm: FC<ILoginForm> = () => {
   const session = useSession();
   const googleSignIn = () => {
     signIn("google", {
-      callbackUrl: "/",
+      callbackUrl: "/home",
     });
   };
   const {
