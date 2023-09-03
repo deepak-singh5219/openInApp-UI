@@ -2,7 +2,9 @@
 'use client'
 import React, { useContext, useState } from "react";
 import { Dashboard, Schedules, Settings, Transactions, Users } from "../../public/assets/icons";
-import { SidebarContext } from "@/context/SidebarContext";
+import { SidebarContext } from "../context/SidebarContext";
+import MenuIcon from '@mui/icons-material/Menu';
+
 
 
 
@@ -18,8 +20,9 @@ const MobileSidebar = (props: Props) => {
   ];
   const { isOpen, toggleSidebar } = useContext(SidebarContext);
   return (
-<div className={`${!isOpen?"left-0":"-left-[600px]"} h-full fixed transition-all ease-in-out duration-600 md:hidden w-72 h-[90%] flex flex-row`}>
+<div className={`${!isOpen?"left-0":"-left-[600px]"} z-30 h-full fixed transition-all ease-in-out duration-600 md:hidden w-72 h-[90%] flex flex-row`}>
   <div className="relative flex py-8 flex-col w-5/6 bg-gradient-to-r from-[#4285F4] to-[#3C83F9] w-full overflow-hidden">
+  <MenuIcon onClick={toggleSidebar} className={`text-gray-200 absolute md:hidden cursor-pointer left-4 top-4`}/>
    <div className="flex flex-col justify-center items-center">
 
     <div className="flex flex-col h-[85%] items-start justify-between">

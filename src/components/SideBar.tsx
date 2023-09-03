@@ -18,7 +18,7 @@ const SideBar = (props: Props) => {
   return (
 <>
 <MobileSidebar/>
-<div className="h-[90%] hidden w-72 h-[90%] md:flex flex-row">
+<div className="h-[95%] hidden w-72 md:flex flex-row">
   <div className="relative flex py-8 flex-col w-5/6 bg-gradient-to-r from-[#4285F4] to-[#3C83F9] rounded-2xl w-full overflow-hidden">
    <div className="flex flex-col justify-center items-center">
 
