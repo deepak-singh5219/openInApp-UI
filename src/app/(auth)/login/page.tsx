@@ -4,10 +4,10 @@ import { AuthButtons, Button, Input, Text } from "@/components/UI";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import Link from "next/link";
 import { signIn, useSession } from "next-auth/react";
+import { GoogleIcon } from "../../../../public/assets/icons";
 
 const schema = z.object({
   email: z.string().email({ message: "Please enter a valid Email" }),
@@ -115,15 +115,7 @@ const LoginForm: FC<ILoginForm> = () => {
           </form>
         </div>
         <p className="text-center text-sm text-secondary">
-          Dont have an account?{" "}
-          <Link href="/signup">
-            <Text
-              variant="infoSm"
-              className="inline-block max-w-max mt-8 text-blue"
-            >
-              Register here
-            </Text>
-          </Link>
+          Dont have an account? <Link href="/signup">Register here</Link>
         </p>
       </div>
     </>

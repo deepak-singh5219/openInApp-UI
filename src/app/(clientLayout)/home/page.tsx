@@ -1,5 +1,4 @@
 "use client";
-
 import { SidebarContext } from "@/context/SidebarContext";
 import { FC } from "react";
 import React, { useContext } from 'react';
