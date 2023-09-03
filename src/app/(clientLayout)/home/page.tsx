@@ -1,16 +1,16 @@
 "use client";
-import { SidebarContext } from "../../../context/SidebarContext"
+import { SidebarContext } from "../../../context/SidebarContext";
 import { FC } from "react";
-import React, { useContext } from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
+import React, { useContext } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
 import Capsules from "../../../components/Capsules";
 import { Text } from "../../../components/UI";
 import NavBar from "@/components/NavBar";
+import AddIcon from "@mui/icons-material/Add";
 import BarChart from "@/components/Charts/BarChart"
 import MobileChart from "../../../components/Charts/MobileChart";
 import { useDataApi } from "../../../context/ApiContext";
 import DoughnutChart from "../../../components/Charts/DoughnutChart";
-
 
 
 
@@ -29,8 +29,13 @@ const Home: FC<pageProps> = ({}) => {
   
   return (
     <>
-    <MenuIcon onClick={toggleSidebar} className={`${!isOpen?"text-gray-200":"text-gray-800"} absolute md:hidden cursor-pointer left-4 top-4`}/>
-     {/* <NavBar/> */}
+      <MenuIcon
+        onClick={toggleSidebar}
+        className={`${
+          !isOpen ? "text-gray-200" : "text-gray-800"
+        } absolute md:hidden cursor-pointer left-4 top-4`}
+      />
+      {/* <NavBar/> */}
 
       <div className="flex w-full flex-wrap items-center md:justify-between">
         <Capsules />
@@ -38,7 +43,6 @@ const Home: FC<pageProps> = ({}) => {
         <Capsules />
         <Capsules />
       </div>
-
       <div className="w-full h-[90%] border-gray-200 border-2 rounded-lg my-4 border-gray-200 shadow-lg ">
         <div className="w-full h-full hidden md:flex">
         <BarChart data = {data}/>
@@ -47,6 +51,7 @@ const Home: FC<pageProps> = ({}) => {
         <MobileChart data = {data}/>
         </div>
       </div>
+
       <div className="w-full flex flex-col md:flex-row items-center justify-between h-full md:h-72 md:my-4">
         <div className="rounded-xl border-2 shadow-lg border-gray-200 w-[100%] my-2 md:my-0 md:w-[45%] h-full">
         <div className="flex items-center justify-between">
@@ -56,9 +61,18 @@ const Home: FC<pageProps> = ({}) => {
            <DoughnutChart data={sampleData}/>
         </div>
         <div className="rounded-xl border-2 shadow-lg border-gray-200 w-[100%] md:w-[45%] my-2 md:my-0 h-full"></div>
+
+      <div className="w-full flex items-center justify-between h-72 my-4">
+        <div className="rounded-xl  border-2 shadow-lg border-gray-200 w-[45%] h-full"></div>
+        <div className="rounded-xl border-2 shadow-lg border-gray-200 w-[45%] h-full">
+          <div className="flex items-center justify-between w-full h-full bg-[#fe2]">
+            <div className="w-20 h-20 rounded-full p-4 bg-dark items-center">
+              <AddIcon fontSize="large" />
+            </div>
+            <Text variant="titleSm">See All</Text>
+          </div>
+        </div>
       </div>
-
-
     </>
   );
 };
