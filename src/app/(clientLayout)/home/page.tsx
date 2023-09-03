@@ -1,12 +1,21 @@
 "use client";
+import Capsules from "@/components/Capsules";
+import { Text } from "@/components/UI";
 import { FC } from "react";
 
 interface pageProps {}
 
 const Home: FC<pageProps> = ({}) => {
   return (
-    <div>
-      <h1 className="text-4xl">Home</h1>
+    <div className="">
+      <div>
+        
+      </div>
+      <div className="flex gap-x-10 mt-10">
+        <Capsules />
+        <Capsules />
+        <Capsules />
+      </div>
     </div>
   );
 };

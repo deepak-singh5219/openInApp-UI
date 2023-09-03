@@ -6,3 +6,4 @@ export { default as CollapsIcon } from "./CollapsIcon";
 export { default as LogoIcon } from "./Logo";
 export { default as LogoutIcon } from "./LogoutIcon";
 export { default as GoogleIcon } from "./google-icon"
+export { default as Icon1 } from "./icon1"
