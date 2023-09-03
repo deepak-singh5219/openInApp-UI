@@ -10,6 +10,12 @@ import BarChart from "@/components/Charts/BarChart";
 import MobileChart from "../../../components/Charts/MobileChart";
 import { useDataApi } from "../../../context/ApiContext";
 import FormComponent from "@/components/FormComponent";
+import DoughnutChart from "../../../components/Charts/DoughnutChart";
+import { Icon1 } from "../../../../public/assets/icons";
+import { Icon2 } from "../../../../public/assets/icons";
+import { Icon3 } from "../../../../public/assets/icons";
+import { Icon4 } from "../../../../public/assets/icons";
+
 
 interface pageProps {}
 
@@ -20,6 +26,38 @@ const Home: FC<pageProps> = ({}) => {
   const handleClick = () => {
     setAddPopup(true);
   };
+  const sampleData = {
+    "frontend_developers": 40,
+    "backend_developers": 30,
+    "machine_learning_engineers": 30
+  }
+
+  const capsulesData = [
+    {
+      icon:Icon1,
+      title:"Total Revenues",
+      num:"$2,129,430",
+      inc:"+2.5%",
+    },
+    {
+      icon:Icon2,
+      title:"Total Transactions",
+      num:"1,520",
+      inc:"+1.7%",
+    },
+    {
+      icon:Icon3,
+      title:"Total Likes",
+      num:"9,721",
+      inc:"+1.4%",
+    },
+    {
+      icon:Icon4,
+      title:"Total Users",
+      num:"9,721",
+      inc:"+4.2%",
+    }
+  ]
 
   return (
     <>
@@ -31,10 +69,13 @@ const Home: FC<pageProps> = ({}) => {
       />
       {/* <NavBar/> */}
       <div className="flex w-full flex-wrap items-center md:justify-between">
-        <Capsules />
-        <Capsules />
-        <Capsules />
-        <Capsules />
+        {
+          capsulesData.map((value,index)=>{
+            return (
+              <Capsules key={index} data={value}/>
+            )
+          })
+        }
       </div>
       <div className="w-full h-[90%] border-gray-200 border-2 rounded-lg my-4 border-gray-200 shadow-lg ">
         <div className="w-full h-full hidden md:flex">
@@ -44,12 +85,23 @@ const Home: FC<pageProps> = ({}) => {
           <MobileChart data={data} />
         </div>
       </div>
-      <div className="w-full flex items-center gap-x-5 h-72 my-4">
+
+      <div className="w-full flex flex-col md:flex-row items-center justify-between h-full md:h-72 md:my-4">
+        <div className="rounded-xl border-2 shadow-lg border-gray-200 w-[100%] my-2 md:my-0 md:w-[45%] h-full">
+        <div className="flex items-center justify-between">
+        <h1 className="md:text-md text-sm  font-semibold text-start text-gray-800 mx-6 my-3">Developers</h1>
+        <h1 className="md:text-sm text-xs  font-light text-start text-gray-500 mx-6 my-3">May-Aug 2023</h1>
+        </div>
+           <DoughnutChart data={sampleData}/>
+        </div>
+        <div className="rounded-xl border-2 shadow-lg border-gray-200 w-[100%] md:w-[45%] my-2 md:my-0 h-full">
+           <div className="w-full flex items-center gap-x-5 h-72 my-4">
         <div className="rounded-xl  border-2 shadow-lg border-gray-200 w-[50%] h-full"></div>
         <div className="rounded-xl border-2 shadow-lg border-gray-200 w-[50%] h-full">
           <div className="flex items-center flex-col justify-center w-full h-full">
             <div className="w-20 h-20 rounded-full p-4 bg-[#F2F2F2] text-[#999CA0] flex items-center justify-center">
               <AddIcon fontSize="large" onClick={handleClick} />
+        </div>
             </div>
             <Text variant="productTitle" className="mt-3 ">
               Add Profile
