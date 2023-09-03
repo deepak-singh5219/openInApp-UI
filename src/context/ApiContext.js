@@ -1,6 +1,6 @@
-'use client'
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+"use client";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
 
 // Create a new context
 const DataApiContext = createContext();
@@ -15,7 +15,7 @@ const DataApiProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   // Define the API endpoint URL
-  const apiUrl = 'https://api.escuelajs.co/api/v1/products'; 
+  const apiUrl = "http://localhost:3000/api/data";
 
   // Function to fetch data
   const fetchData = async () => {
