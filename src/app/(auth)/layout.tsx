@@ -22,7 +22,7 @@ export default function RootLayout({ children }: ILayout) {
           </Text>
           <div className="flex  justify-center items-center mt-60">
             <Text variant="titleXl" className="max-w-max font-bold text-6xl">
-              BOARD.
+              Board.
             </Text>
           </div>
           <div className="flex gap-x-8 mt-60 justify-center">
