@@ -20,7 +20,6 @@ export default function RootLayout({
             <SideBar />
             <div className="flex flex-col flex-1 w-full mt-4 md:mt-0 md:px-8 px-2 ">
               <NavBar />
-
               <div className="bg-primary overflow-y-auto mt-6 flex-2  mb-6 text-primary">
                 {children}
               </div>
