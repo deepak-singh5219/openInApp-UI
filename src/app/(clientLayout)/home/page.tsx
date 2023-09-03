@@ -64,7 +64,7 @@ const Home: FC<pageProps> = ({}) => {
         onClick={toggleSidebar}
         className={`${
           !isOpen ? "text-gray-200" : "text-gray-800"
-        } absolute md:hidden cursor-pointer left-4 top-4`}
+        } absolute md:hidden cursor-pointer z-50 left-4 top-4`}
       />
       {/* <NavBar/> */}
       <div className="flex w-full flex-wrap items-center md:justify-between">

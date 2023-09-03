@@ -13,7 +13,7 @@ interface ChildComponentProps {
 
 const Capsules: React.FC<ChildComponentProps> = ({ data }) => {
   return (
-    <section className="relative w-64 body-font my-2">
+    <section className="relative w-full md:w-64 body-font my-2">
       <div className="container mx-auto border-2 border-gray-200 rounded-xl shadow-xl px-3">
         <div className="flex flex-wrap">
           <div className="w-full p-2">
