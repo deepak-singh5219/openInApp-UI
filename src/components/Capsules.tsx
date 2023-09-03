@@ -6,11 +6,11 @@ type Props = {};
 
 const Capsules = ({}: Props) => {
   return (
-    <section className="body-font my-2 mx-2">
-      <div className="container mx-auto">
+    <section className="body-font my-2">
+      <div className="container mx-auto border-2 border-gray-200 rounded-xl shadow-xl px-3">
         <div className="flex flex-wrap">
           <div className="w-full p-2">
-            <div className="border-2 border-gray-200 py-2 px-2 rounded-xl shadow-xl">
+            <div className="py-2 px-2 ">
               <div className="flex flex-col">
                 <div className="w-10 h-10 inline-flex items-center justify-center mb-4">
                   <Icon1 />
@@ -21,7 +21,10 @@ const Capsules = ({}: Props) => {
               </div>
               <div className="flex gap-x-12 mt-2">
                 <div>
-                  <Text variant="productTitle" className="inline-block font-semibold max-w-max">
+                  <Text
+                    variant="productTitle"
+                    className="inline-block font-semibold max-w-max"
+                  >
                     $2,129,430
                   </Text>
                 </div>
@@ -35,6 +38,6 @@ const Capsules = ({}: Props) => {
       </div>
     </section>
   );
-}
+};
 
 export default Capsules;
