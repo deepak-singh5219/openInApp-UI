@@ -1,5 +1,4 @@
 "use client";
-
 import { FC } from "react";
 
 interface pageProps {}

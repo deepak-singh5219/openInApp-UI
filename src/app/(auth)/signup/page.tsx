@@ -6,9 +6,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
-import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import Link from "next/link";
+import { GoogleIcon } from "../../../../public/assets/icons";
 
 const schema = z
   .object({
@@ -135,15 +135,7 @@ const Signup: FC<ISignUpForm> = () => {
           </form>
         </div>
         <p className="text-center text-sm text-secondary">
-          Already have an account?{" "}
-          <Link href="/login">
-            <Text
-              variant="infoSm"
-              className="inline-block max-w-max mt-8 text-blue"
-            >
-              Login here
-            </Text>
-          </Link>
+          Already have an account? <Link href="/login">Login here</Link>
         </p>
       </div>
     </>
