@@ -12,3 +12,6 @@ export { default as Users } from "./Users";
 export { default as Schedules } from "./Schedules";
 export { default as GoogleIcon } from "./google-icon";
 export { default as Icon1 } from "./icon1"
+export { default as Icon2 } from "./Icon2"
+export { default as Icon3 } from "./Icon3"
+export { default as Icon4 } from "./Icon4"

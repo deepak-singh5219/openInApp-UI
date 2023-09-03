@@ -2,21 +2,30 @@ import React from "react";
 import { Icon1 } from "../../public/assets/icons";
 import { Text } from "./UI";
 import { Chip } from "@mui/material";
-type Props = {};
+interface ChildComponentProps {
+  data: {
+    icon: any;
+    title: string;
+    num: string;
+    inc: string;
+  };
+}
 
-const Capsules = ({}: Props) => {
+
+const Capsules: React.FC<ChildComponentProps> = ({ data }) => {
+ 
   return (
-    <section className="body-font my-2">
+    <section className="relative w-64 body-font my-2">
       <div className="container mx-auto border-2 border-gray-200 rounded-xl shadow-xl px-3">
         <div className="flex flex-wrap">
           <div className="w-full p-2">
             <div className="py-2 px-2 ">
               <div className="flex flex-col">
                 <div className="w-10 h-10 inline-flex items-center justify-center mb-4">
-                  <Icon1 />
+                 <data.icon/>
                 </div>
                 <Text variant="titleSm" className="inline-block max-w-max">
-                  Total Revenues
+                  {data.title}
                 </Text>
               </div>
               <div className="flex gap-x-12 mt-2">
@@ -25,11 +34,11 @@ const Capsules = ({}: Props) => {
                     variant="productTitle"
                     className="inline-block font-semibold max-w-max"
                   >
-                    $2,129,430
+                    {data.num}
                   </Text>
                 </div>
                 <div>
-                  <Chip label="+2.5%" color="success" />
+                  <Chip label={data.inc} className="absolute right-2 bottom-4" color="success" />
                 </div>
               </div>
             </div>
