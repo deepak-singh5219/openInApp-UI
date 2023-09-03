@@ -4,7 +4,7 @@ import { HorizontalBar } from 'react-chartjs-2';
 import { Chart, registerables} from 'chart.js';
 Chart.register(...registerables);
 
-const BarChart = ({ data }) => {
+const MobileChart = ({ data }) => {
   const years = data.map(entry => entry.year);
   const newRecruits = data.map(entry => entry.new_recruits);
   const resignations = data.map(entry => entry.resignations);
@@ -19,7 +19,7 @@ const BarChart = ({ data }) => {
         backgroundColor: '#98D89E',
         borderColor: '#98D89E',
         borderWidth: 1,
-        barThickness: 40, 
+        barThickness: 10, 
       },
       {
         label: 'Resignations',
@@ -27,7 +27,7 @@ const BarChart = ({ data }) => {
         backgroundColor: '#EE8484',
         borderColor: '#EE8484',
         borderWidth: 1,
-        barThickness: 40, 
+        barThickness: 10, 
       }
     ],
   };
@@ -61,4 +61,4 @@ const BarChart = ({ data }) => {
   );
 };
 
-export default BarChart;
+export default MobileChart;
