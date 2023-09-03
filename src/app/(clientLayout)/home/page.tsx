@@ -10,6 +10,10 @@ import BarChart from "@/components/Charts/BarChart"
 import MobileChart from "../../../components/Charts/MobileChart";
 import { useDataApi } from "../../../context/ApiContext";
 import DoughnutChart from "../../../components/Charts/DoughnutChart";
+import { Icon1 } from "../../../../public/assets/icons";
+import { Icon2 } from "../../../../public/assets/icons";
+import { Icon3 } from "../../../../public/assets/icons";
+import { Icon4 } from "../../../../public/assets/icons";
 
 
 
@@ -25,6 +29,35 @@ const Home: FC<pageProps> = ({}) => {
     "backend_developers": 30,
     "machine_learning_engineers": 30
   }
+
+  const capsulesData = [
+    {
+      icon:Icon1,
+      title:"Total Revenues",
+      num:"$2,129,430",
+      inc:"+2.5%",
+    },
+    {
+      icon:Icon2,
+      title:"Total Transactions",
+      num:"1,520",
+      inc:"+1.7%",
+    },
+    {
+      icon:Icon3,
+      title:"Total Likes",
+      num:"9,721",
+      inc:"+1.4%",
+    },
+    {
+      icon:Icon4,
+      title:"Total Users",
+      num:"9,721",
+      inc:"+4.2%",
+    }
+  ]
+
+  
   
   
   return (
@@ -33,10 +66,13 @@ const Home: FC<pageProps> = ({}) => {
      {/* <NavBar/> */}
 
       <div className="flex w-full flex-wrap items-center md:justify-between">
-        <Capsules />
-        <Capsules />
-        <Capsules />
-        <Capsules />
+        {
+          capsulesData.map((value,index)=>{
+            return (
+              <Capsules key={index} data={value}/>
+            )
+          })
+        }
       </div>
 
       <div className="w-full h-[90%] border-gray-200 border-2 rounded-lg my-4 border-gray-200 shadow-lg ">
