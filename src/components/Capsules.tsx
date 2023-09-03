@@ -11,9 +11,7 @@ interface ChildComponentProps {
   };
 }
 
-
 const Capsules: React.FC<ChildComponentProps> = ({ data }) => {
- 
   return (
     <section className="relative w-64 body-font my-2">
       <div className="container mx-auto border-2 border-gray-200 rounded-xl shadow-xl px-3">
@@ -22,7 +20,7 @@ const Capsules: React.FC<ChildComponentProps> = ({ data }) => {
             <div className="py-2 px-2 ">
               <div className="flex flex-col">
                 <div className="w-10 h-10 inline-flex items-center justify-center mb-4">
-                 <data.icon/>
+                  <data.icon />
                 </div>
                 <Text variant="titleSm" className="inline-block max-w-max">
                   {data.title}
@@ -38,7 +36,11 @@ const Capsules: React.FC<ChildComponentProps> = ({ data }) => {
                   </Text>
                 </div>
                 <div>
-                  <Chip label={data.inc} className="absolute right-2 bottom-4" color="success" />
+                  <Chip
+                    label={data.inc}
+                    className="absolute right-2 bottom-4"
+                    color="success"
+                  />
                 </div>
               </div>
             </div>

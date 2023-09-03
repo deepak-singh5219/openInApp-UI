@@ -16,7 +16,7 @@ export default function RootLayout({
     <>
       <DataApiProvider>
         <SidebarProvider>
-          <div className="h-screen px-10 fixed w-screen md:m-6 md:p-2 flex flex-row justify-start">
+          <div className="h-max md:h-screen px-2 md:px-10 fixed w-screen md:m-6 md:p-2 flex flex-row justify-start">
             <SideBar />
             <div className="flex flex-col flex-1 w-full mt-4 md:mt-0 md:px-8 px-2 ">
               <NavBar />
