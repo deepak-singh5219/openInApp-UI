@@ -10,4 +10,4 @@ export { default as Transactions } from "./Transactions";
 export { default as Settings } from "./Settings";
 export { default as Users } from "./Users";
 export { default as Schedules } from "./Schedules";
-export { default as GoogleIcon } from "./google-icon"
+export { default as GoogleIcon } from "./google-icon";
