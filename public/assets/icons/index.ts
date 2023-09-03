@@ -5,3 +5,8 @@ export { default as VideosIcon } from "./VideosIcon";
 export { default as CollapsIcon } from "./CollapsIcon";
 export { default as LogoIcon } from "./Logo";
 export { default as LogoutIcon } from "./LogoutIcon";
+export { default as Dashboard } from "./Dashboard";
+export { default as Transactions } from "./Transactions";
+export { default as Settings } from "./Settings";
+export { default as Users } from "./Users";
+export { default as Schedules } from "./Schedules";

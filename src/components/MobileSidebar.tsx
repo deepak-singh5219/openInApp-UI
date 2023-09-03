@@ -1,13 +1,14 @@
 // side bar code here
-import React from "react";
+'use client'
+import React, { useContext, useState } from "react";
 import { Dashboard, Schedules, Settings, Transactions, Users } from "../../public/assets/icons";
-import MobileSidebar from "./MobileSidebar";
+import { SidebarContext } from "@/context/SidebarContext";
 
 
 
 type Props = {};
 
-const SideBar = (props: Props) => {
+const MobileSidebar = (props: Props) => {
   const sideBarMenuOptions = [
     {icon: Dashboard, title: "Dashboard"},
     {icon: Transactions, title: "Transactions"},
@@ -15,11 +16,10 @@ const SideBar = (props: Props) => {
     {icon: Users, title: "Users"},
     {icon: Settings, title: "Settings"}
   ];
+  const { isOpen, toggleSidebar } = useContext(SidebarContext);
   return (
-<>
-<MobileSidebar/>
-<div className="h-[90%] hidden w-72 h-[90%] md:flex flex-row">
-  <div className="relative flex py-8 flex-col w-5/6 bg-gradient-to-r from-[#4285F4] to-[#3C83F9] rounded-2xl w-full overflow-hidden">
+<div className={`${!isOpen?"left-0":"-left-[600px]"} h-full fixed transition-all ease-in-out duration-600 md:hidden w-72 h-[90%] flex flex-row`}>
+  <div className="relative flex py-8 flex-col w-5/6 bg-gradient-to-r from-[#4285F4] to-[#3C83F9] w-full overflow-hidden">
    <div className="flex flex-col justify-center items-center">
 
     <div className="flex flex-col h-[85%] items-start justify-between">
@@ -58,9 +58,7 @@ const SideBar = (props: Props) => {
    </div>
   
   </div>
-</div> 
-</>
- );
+</div>  );
 };
 
-export default SideBar;
+export default MobileSidebar;
