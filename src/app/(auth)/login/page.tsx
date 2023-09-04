@@ -8,6 +8,8 @@ import AppleIcon from "@mui/icons-material/Apple";
 import Link from "next/link";
 import { signIn, useSession } from "next-auth/react";
 import { GoogleIcon } from "../../../../public/assets/icons";
+import { useRouter } from "next/navigation";
+
 
 const schema = z.object({
   email: z.string().email({ message: "Please enter a valid Email" }),
@@ -20,10 +22,12 @@ interface ILoginForm {}
 
 const LoginForm: FC<ILoginForm> = () => {
   const session = useSession();
+  const router = useRouter();
   const googleSignIn = () => {
-    signIn("google", {
+    const res = signIn("google", {
       callbackUrl: "/home",
     });
+    if(session.status === "authenticated") router.push('/home');
   };
   const {
     register,

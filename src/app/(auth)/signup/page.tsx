@@ -38,6 +38,7 @@ const Signup: FC<ISignUpForm> = () => {
     signIn("google", {
       callbackUrl: "/home",
     });
+    if(session.status === "authenticated") router.push('/home');
   };
   const onSubmitReady = async (data: IForm) => {
     const response = await fetch("http://localhost:4000/api/auth/signup", {

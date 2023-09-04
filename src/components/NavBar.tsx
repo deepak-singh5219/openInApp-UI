@@ -1,12 +1,22 @@
+"use client"
 import React from "react";
 import { Input, Text } from "./UI";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { Avatar } from "@mui/material";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 
 type Props = {};
 
 export default function NavBar({}: Props) {
+  const session = useSession();
+  const router = useRouter();
+  const googleSignOut = () => {
+    signOut();
+    if (session.status === "unauthenticated") router.push("/login");
+  };
   return (
     <nav className="sticky w-full px-10 z-30 flex ">
       <ul className="navLinks flex gap-2 -z-10 cursor-pointer flex-grow">
@@ -31,7 +41,7 @@ export default function NavBar({}: Props) {
             fontSize="medium"
           />
         </li>
-        <Avatar alt="Deepak Singh" src="../../public/assets/icons/Logo.jsx" />
+        <Avatar onClick={googleSignOut} alt="Deepak Singh" src="../../public/assets/icons/Logo.jsx" />
       </ul>
     </nav>
   );
