@@ -35,9 +35,7 @@ const Signup: FC<ISignUpForm> = () => {
   const router = useRouter();
   const session = useSession();
   const googleSignIn = () => {
-    signIn("google", {
-      callbackUrl: "/home",
-    });
+    signIn("google");
     if(session.status === "authenticated") router.push('/home');
   };
   const onSubmitReady = async (data: IForm) => {

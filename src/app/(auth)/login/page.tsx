@@ -24,11 +24,10 @@ const LoginForm: FC<ILoginForm> = () => {
   const session = useSession();
   const router = useRouter();
   const googleSignIn = () => {
-    const res = signIn("google", {
-      callbackUrl: "/home",
-    });
+    signIn("google");
     if(session.status === "authenticated") router.push('/home');
   };
+
   const {
     register,
     handleSubmit,

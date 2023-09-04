@@ -17,12 +17,12 @@ import { Icon3 } from "../../../../public/assets/icons";
 import { Icon4 } from "../../../../public/assets/icons";
 import Profile from "@/components/UI/Profile";
 import { useFormData } from "@/context/FormContext";
+import { useSession } from "next-auth/react";
 
 
 
 
 interface pageProps {}
-
 const Home: FC<pageProps> = ({}) => {
   const { isOpen, toggleSidebar } = useContext(SidebarContext);
   const { data, loading, error } = useDataApi();
@@ -37,6 +37,7 @@ const Home: FC<pageProps> = ({}) => {
   };
 
   const {formData,profileStatus} = useFormData();  
+  const session = useSession();
 
   
 
@@ -66,6 +67,8 @@ const Home: FC<pageProps> = ({}) => {
       inc: "+4.2%",
     },
   ];
+
+  console.log("Session",session);
 
   return (
     <>

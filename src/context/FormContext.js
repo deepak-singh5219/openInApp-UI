@@ -10,7 +10,7 @@ export const useFormData = () => {
 const FormDataProvider = ({ children }) => {
   const [formData, setFormData] = useState({});
   const [profileStatus, setProfileStatus] = useState(false);
-  console.log(formData);
+
 
   
   
