@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
             return NextResponse.redirect(new URL('/home', request.url));
         }
     } else {
-        const secureRoutes = ['/home'];
+        const secureRoutes = ['/route'];
         const isSecureRoute = secureRoutes.some((route) =>
             pathname.startsWith(route)
         );
