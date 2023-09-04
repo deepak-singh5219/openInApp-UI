@@ -20,7 +20,7 @@ export default function Home() {
     signOut();
     if (session.status === "unauthenticated") router.push("/login");
   };
-  useEffect(()=> router.push("/login"));
+  // useEffect(()=> router.push("/login"));
 
   return (
     <div className="flex justify-center items-center w-screen h-screen flex flex-col">
