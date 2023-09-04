@@ -3,9 +3,11 @@ import { Button, Input, Text } from "./UI";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useFormData } from "@/context/FormContext";
 
 type Props = {
   setState: (state: String) => void;
+  setAddPopup: (addpopup: Boolean) => void;
 };
 const schema = z.object({
   instagram: z.string().min(1, { message: "enter a valid link" }),
@@ -13,22 +15,26 @@ const schema = z.object({
 });
 export type IForm = z.infer<typeof schema>;
 
-function Contact({ setState }: Props) {
+function Contact({ setState, setAddPopup}: Props) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IForm>({ resolver: zodResolver(schema) });
 
+  const { formData, setFormData } = useFormData();
+
   const onSubmitReady = async (data: IForm) => {
-    console.log(data);
+    setFormData({...formData,data});
+    setAddPopup(false)
+
   };
   return (
     <div>
       <form className="space-y-6" onSubmit={handleSubmit(onSubmitReady)}>
         <div>
           <Text variant="titleSm" className="inline-block max-w-max mb-2">
-            Instagram Link (optional)
+            Instagram Link
           </Text>
           <Input
             variant="image"
@@ -44,7 +50,7 @@ function Contact({ setState }: Props) {
         </div>
         <div>
           <Text variant="titleSm" className="inline-block max-w-max mb-2">
-            Youtube Link (optional)
+            Youtube Link
           </Text>
           <Input
             variant="image"

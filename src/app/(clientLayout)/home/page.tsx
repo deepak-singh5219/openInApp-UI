@@ -15,6 +15,11 @@ import { Icon1 } from "../../../../public/assets/icons";
 import { Icon2 } from "../../../../public/assets/icons";
 import { Icon3 } from "../../../../public/assets/icons";
 import { Icon4 } from "../../../../public/assets/icons";
+import Profile from "@/components/UI/Profile";
+import { useFormData } from "@/context/FormContext";
+
+
+
 
 interface pageProps {}
 
@@ -30,6 +35,10 @@ const Home: FC<pageProps> = ({}) => {
     backend_developers: 30,
     machine_learning_engineers: 30,
   };
+
+  const {formData,profileStatus} = useFormData();  
+
+  
 
   const capsulesData = [
     {
@@ -64,7 +73,7 @@ const Home: FC<pageProps> = ({}) => {
         onClick={toggleSidebar}
         className={`${
           !isOpen ? "text-gray-200" : "text-gray-800"
-        } absolute md:hidden cursor-pointer z-50 left-4 top-4`}
+        } absolute lg:hidden cursor-pointer z-50 left-4 top-4`}
       />
       {/* <NavBar/> */}
       <div className="flex w-full flex-wrap items-center md:justify-between">
@@ -80,7 +89,7 @@ const Home: FC<pageProps> = ({}) => {
           <MobileChart data={data} />
         </div>
       </div>
-{/* yai mera code hai  */}
+
       <div className="w-full flex flex-col md:flex-row items-center justify-between h-full md:h-72 md:my-4 gap-x-5">
         <div className="rounded-xl border-2 shadow-lg border-gray-200 w-[100%] my-2 md:my-0 md:w-[50%] h-full">
           <div className="flex items-center justify-between">
@@ -94,13 +103,17 @@ const Home: FC<pageProps> = ({}) => {
           <DoughnutChart data={sampleData} />
         </div>
         <div className="rounded-xl border-2 shadow-lg border-gray-200 w-[100%] md:w-[50%] my-2 md:my-0 h-full">
-          <div className="flex items-center flex-col justify-center w-full h-full">
+
+          <div className={`${profileStatus?"hidden":""} flex items-center flex-col justify-center w-full h-full`}>
             <div className="w-20 h-20 rounded-full p-4 bg-[#F2F2F2] text-[#999CA0] flex items-center justify-center">
               <AddIcon fontSize="large" onClick={handleClick} />
             </div>
             <Text variant="productTitle" className="mt-3 ">
               Add Profile
             </Text>
+          </div>
+          <div className={`${!profileStatus?"hidden":""} w-full h-full `}>
+          <Profile/>
           </div>
         </div>
         {addPopup ? (
@@ -109,7 +122,7 @@ const Home: FC<pageProps> = ({}) => {
           </div>
         ) : null}
       </div>
-      {/* yaha tak mera raj hai */}
+      
     </>
   );
 };

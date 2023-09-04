@@ -114,7 +114,7 @@ const LoginForm: FC<ILoginForm> = () => {
             </div>
           </form>
         </div>
-        <p className="text-center text-sm text-secondary">
+        <p className="text-center text-sm mt-4 text-secondary">
           Dont have an account? <Link href="/signup">Register here</Link>
         </p>
       </div>

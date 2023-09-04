@@ -15,3 +15,8 @@ export { default as Icon1 } from "./icon1"
 export { default as Icon2 } from "./Icon2"
 export { default as Icon3 } from "./Icon3"
 export { default as Icon4 } from "./Icon4"
+export { default as Whatsapp } from "./Whatsapp"
+export { default as Youtube } from "./Youtube"
+export { default as Instagram } from "./Instagram"
+export { default as Email } from "./Email"
+

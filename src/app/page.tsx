@@ -4,6 +4,8 @@ import GoogleIcon from "@mui/icons-material/Google";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
 
 export default function Home() {
   const router = useRouter();
@@ -18,6 +20,8 @@ export default function Home() {
     signOut();
     if (session.status === "unauthenticated") router.push("/login");
   };
+  useEffect(()=> router.push("/login"));
+
   return (
     <div className="flex justify-center items-center w-screen h-screen flex flex-col">
       <div className="mb-10">

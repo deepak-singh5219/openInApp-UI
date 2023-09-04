@@ -2,6 +2,7 @@ import NavBar from "@/components/NavBar";
 import SideBar from "@/components/SideBar";
 import SidebarProvider from "@/context/SidebarContext";
 import DataApiProvider from "@/context/ApiContext";
+import FormDataProvider from "@/context/FormContext";
 export const metadata = {
   title: "openinappui",
   description: "",
@@ -14,9 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <>
+      <FormDataProvider>
       <DataApiProvider>
         <SidebarProvider>
-          <div className="md:h-screen h-full px-2 md:px-4 fixed w-screen md:m-4  flex flex-row justify-start">
+          <div className="md:h-screen h-full px-2 fixed w-screen md:m-4  flex flex-row justify-start">
             <SideBar />
             <div className="flex flex-col flex-1 w-full mt-4 md:mt-0 md:px-8 px-2 ">
               <NavBar />
@@ -27,6 +29,7 @@ export default function RootLayout({
           </div>
         </SidebarProvider>
       </DataApiProvider>
+      </FormDataProvider>
     </>
   );
 }

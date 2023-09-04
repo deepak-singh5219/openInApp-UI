@@ -9,6 +9,7 @@ import { toast } from "react-hot-toast";
 import AppleIcon from "@mui/icons-material/Apple";
 import Link from "next/link";
 import { GoogleIcon } from "../../../../public/assets/icons";
+import { signIn, useSession } from "next-auth/react";
 
 const schema = z
   .object({
@@ -32,6 +33,12 @@ const Signup: FC<ISignUpForm> = () => {
     formState: { errors },
   } = useForm<IForm>({ resolver: zodResolver(schema) });
   const router = useRouter();
+  const session = useSession();
+  const googleSignIn = () => {
+    signIn("google", {
+      callbackUrl: "/home",
+    });
+  };
   const onSubmitReady = async (data: IForm) => {
     const response = await fetch("http://localhost:4000/api/auth/signup", {
       method: "POST",
@@ -61,13 +68,13 @@ const Signup: FC<ISignUpForm> = () => {
           </Text>
           <div className="flex flex-col md:flex-row mt-8 md:gap-x-8 gap-y-5">
             <AuthButtons
-              title="Sign in with Google"
+              title="Sign up with Google"
               color="#FFFFFF"
               icon={<GoogleIcon />}
-              onClick={() => console.log("You clicked on the pink circle!")}
+              onClick={googleSignIn}
             />
             <AuthButtons
-              title="Sign in with Apple"
+              title="Sign up with Apple"
               color="#FFFFFF"
               icon={<AppleIcon />}
               onClick={() => console.log("You clicked on the pink circle!")}
@@ -134,7 +141,7 @@ const Signup: FC<ISignUpForm> = () => {
             </div>
           </form>
         </div>
-        <p className="text-center text-sm text-secondary">
+        <p className="text-center text-sm mt-4 text-secondary">
           Already have an account? <Link href="/login">Login here</Link>
         </p>
       </div>

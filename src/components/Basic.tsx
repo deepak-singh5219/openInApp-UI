@@ -3,6 +3,9 @@ import { Button, Input, Text } from "./UI";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useFormData } from "@/context/FormContext";
+ 
+
 
 type Props = {
   setState: (state: String) => void;
@@ -21,9 +24,12 @@ function Basic({ setState }: Props) {
     formState: { errors },
   } = useForm<IForm>({ resolver: zodResolver(schema) });
 
+  const { formData, setFormData } = useFormData();
   const onSubmitReady = async (data: IForm) => {
-    console.log(data);
+    setFormData(data);
+    setState('contact');
   };
+  
   return (
     <div>
       <form className="space-y-6" onSubmit={handleSubmit(onSubmitReady)}>

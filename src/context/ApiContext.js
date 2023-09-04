@@ -2,21 +2,20 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 
-// Create a new context
+
 const DataApiContext = createContext();
 
 // Create a custom hook to use the context
 export const useDataApi = () => useContext(DataApiContext);
 
-// Create the DataApiProvider component
+
 const DataApiProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Define the API endpoint URL
-  const apiUrl = "http://localhost:3000/api/data";
-
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  
   // Function to fetch data
   const fetchData = async () => {
     try {
