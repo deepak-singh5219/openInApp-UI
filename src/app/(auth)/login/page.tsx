@@ -27,7 +27,7 @@ const LoginForm: FC<ILoginForm> = () => {
     signIn("google");
     if(session.status === "authenticated") router.push('/home');
   };
-
+  console.log("Session", session);
   const {
     register,
     handleSubmit,
