@@ -15,7 +15,7 @@ export default function NavBar({}: Props) {
   const router = useRouter();
   const googleSignOut = () => {
     signOut();
-    if (session.status === "unauthenticated") router.push("/login");
+    router.push("/login");
   };
   return (
     <nav className="sticky w-full px-10 z-30 flex ">
